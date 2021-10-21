@@ -8,10 +8,7 @@ self.addEventListener('install', function(e) {
 				'images/favicon.png',
 				'images/logo512.png',
 				'images/logo192.png',
-				'js/sanitize-html.js',
-				'js/wordlist.js',
-				'js/blokz.js',
-				'css/styles.css',
+				'js/main.js',
 			]);
 		})
 	);
