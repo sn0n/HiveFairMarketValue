@@ -5,28 +5,28 @@ document.getElementById("blokz").innerHTML = "loading...";
 
 function triggered() {
     let data = JSON.parse(localStorage.getItem('status'));
-    /*
-    document.getElementById("blokz").innerHTML = "Current Rates : <br />"
-    document.getElementById("blokz").innerHTML += "bitcoin: $" + data.bitcoin.usd.toFixed(2) + "<br />"
-    document.getElementById("blokz").innerHTML += "litecoin: $" + data.litecoin.usd.toFixed(2) + "<br />"
-    document.getElementById("blokz").innerHTML += "hive: $" + data.hive.usd.toFixed(2) + "<br />"
-    document.getElementById("blokz").innerHTML += "hive dollar: $" + data.hive_dollar.usd.toFixed(2) + "<br />"
-    document.getElementById("blokz").innerHTML += "<hr />";
-    */
     document.getElementById("blokz").innerHTML = "<h1>hive-engine fair market value tool</h1>"
+
+    document.getElementById("blokz").innerHTML += "Actual Market Rate <small>(in USD)</small> : <br />"
+    document.getElementById("blokz").innerHTML += "btc: $" + data.bitcoin.usd.toFixed(2) + "<br />"
+    document.getElementById("blokz").innerHTML += "ltc: $" + data.litecoin.usd.toFixed(2) + "<br />"
+    document.getElementById("blokz").innerHTML += "hive: $" + data.hive.usd.toFixed(2) + "<br />"
+    document.getElementById("blokz").innerHTML += "hbd: $" + data.hive_dollar.usd.toFixed(2) + "<br />"
+    document.getElementById("blokz").innerHTML += "<hr />";
+    
     let rate = data.litecoin.usd/data.hive.usd;
     let buyrate = rate-(rate/100);
 
-    document.getElementById("blokz").innerHTML += "<h3>SWAP.LTC</h3>Actual rate : " + rate.toFixed(5) +  "<br />"
+    document.getElementById("blokz").innerHTML += "<strong>SWAP.LTC<br />" + rate.toFixed(5) +  "</strong><br />"
     let sellrate = rate+(rate/100)
-    document.getElementById("blokz").innerHTML += buyrate.toFixed(5) + " to " + sellrate.toFixed(5) + "<br /><small>(1% range)</small>";
+    document.getElementById("blokz").innerHTML += buyrate.toFixed(5) + " to " + sellrate.toFixed(5) + "<sup> ±1% </sup>";
 
     
     let btcrate = data.bitcoin.usd/data.hive.usd;
     let btcbuyrate = btcrate-(btcrate/100)
     let btcsellrate = btcrate+(btcrate/100)
     document.getElementById("blokz").innerHTML += "<h3>SWAP.BTC</h3>Actual rate : " + btcrate.toFixed(5) +  "<br />"
-    document.getElementById("blokz").innerHTML += btcbuyrate.toFixed(5) + " to " + btcsellrate.toFixed(5) + "<br /><small>(1% range)</small>"
+    document.getElementById("blokz").innerHTML += btcbuyrate.toFixed(5) + " to " + btcsellrate.toFixed(5) + "<sup> ±1% </sup>"
 
     document.getElementById("blokz").innerHTML += "<hr /><div id='ads'>ads: </div>"
 
